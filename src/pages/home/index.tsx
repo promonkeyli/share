@@ -10,15 +10,16 @@ export default function Index(){
         <>
             <div className='theme-box'><ThemeCard/></div>
             <div  className='content'>
-                <div className='info-box'>
-                    <div className='title'>
-                        <TitleCard/>
-                    </div>
-                    {/*<div className='personal'>
-                        <PersonalCard/>
-                    </div>*/}
+                <div className='title'>
+                    <TitleCard/>
+                </div>
+                <div className='nav-box'>
+                    <button>Home</button>
                 </div>
             </div>
+                {/*<div className='personal'>
+                    <PersonalCard/>
+                </div>*/}
         </>
     )
 }

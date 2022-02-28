@@ -5,8 +5,8 @@
  */
 export default function (){
     return (
-        <>
+        <div className='personnel-page'>
             personnel
-        </>
+        </div>
     )
 }

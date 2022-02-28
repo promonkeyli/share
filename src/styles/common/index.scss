@@ -23,7 +23,7 @@ html,body {
 // them-box
 .theme-box {
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: #fff;
   display: flex;
   padding-left: 20px;
@@ -37,12 +37,11 @@ html,body {
   border-radius: 50%;
   margin-left: 10px;
 }
-// title
-.info-box {
-  width: 100%;
-}
+
+// title-page
 .title-page {
   width: 100%;
+  height: 200px;
   .title-welcome {
     font-size: 5rem;
     line-height: 1rem;
@@ -54,5 +53,27 @@ html,body {
   .title-tip {
     font-size: 2rem;
     line-height: 1rem;
+  }
+}
+
+// nav btn
+.nav-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  padding: 50px;
+  font-size: 2rem;
+  button {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background: #77b767;
+  }
+  button:hover{
+    width: 151px;
+    height: 51px;
   }
 }

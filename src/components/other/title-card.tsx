@@ -11,7 +11,7 @@ export default function (){
                  Young's Personal HomePage
              </p>
             <p className='title-tip'>
-                share front-end tools & knowledge & life.
+                share front-end tools & knowledge & my life.
             </p>
         </div>
     )

@@ -8,14 +8,16 @@ const PoetryCard = React.lazy(() => import('../../components/other/poetry-card')
 export default function Index(){
     return(
         <>
-            <div className='theme-box'>
-                <ThemeCard/>
-            </div>
-            <div className='title-box'>
-                <TitleCard/>
-            </div>
-            <div>
-                <PersonalCard/>
+            <div className='theme-box'><ThemeCard/></div>
+            <div  className='content'>
+                <div className='info-box'>
+                    <div className='title'>
+                        <TitleCard/>
+                    </div>
+                    {/*<div className='personal'>
+                        <PersonalCard/>
+                    </div>*/}
+                </div>
             </div>
         </>
     )

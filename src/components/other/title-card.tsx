@@ -5,8 +5,14 @@
  */
 export default function (){
     return (
-        <>
-            Welcome to Young's Personal HomePage
-        </>
+        <div className='title-page'>
+            <p className='title-welcome'>Welcome to</p>
+             <p className='title-who'>
+                 Young's Personal HomePage
+             </p>
+            <p className='title-tip'>
+                share front-end tools & knowledge & life.
+            </p>
+        </div>
     )
 }

@@ -1,5 +1,6 @@
 @import 'normalize';
 @import 'variable';
+@import './iconfont/iconfont';
 
 // border-box
 * {
@@ -77,3 +78,30 @@ html,body {
     height: 51px;
   }
 }
+
+ // 主页样式
+.home-page {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:'aside main';
+  .aside {
+    grid-area: aside;
+  }
+  .main {
+    grid-area: main;
+    background-color: bisque;
+  }
+}
+.fold {
+  cursor: pointer;
+}
+
+// avatar
+.avatar {
+  width: 8rem;
+  height: 8rem;
+  background: url("../../assets/images/avatar.png") no-repeat;
+  background-size: 8rem 8rem;
+}
+

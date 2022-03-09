@@ -2,7 +2,7 @@
 import React, {ReactElement} from "react";
 
 export interface NavCardProps{
-    element:  ReactElement;
+    title: string;
     icon: ReactElement;
     path: string;
 }

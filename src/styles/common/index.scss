@@ -85,15 +85,22 @@ html,body {
   height: 100vh;
   display: grid;
   grid-template-areas:'aside main';
+  grid-template-columns: 250px auto;
   .aside {
     grid-area: aside;
+    padding: 10px;
+    grid-column: 1/2;
+    grid-row: 1/2;
   }
   .main {
     grid-area: main;
-    background-color: bisque;
+    padding: 10px;
+    grid-column: 2/3;
+    grid-row: 1/2;
   }
 }
 .fold {
+  position: absolute;
   cursor: pointer;
 }
 
@@ -103,5 +110,14 @@ html,body {
   height: 8rem;
   background: url("../../assets/images/avatar.png") no-repeat;
   background-size: 8rem 8rem;
+}
+
+// common page container
+.page-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background-color: $themeColor;
+  border-radius: $bdRadius;
 }
 

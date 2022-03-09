@@ -1,6 +1,19 @@
 // 主题色
-$bgColor: green;
-// 边框色
-// 字体颜色
+// theme
+$themeColor: rgba(76, 138, 115, .3);
+// background
+$bgColor: #ced6e0;
+
 // 字体大小
-$titleSize: 2rem;
+// large
+$fontSizeL: 3rem;
+// middle
+$fontSizeM: 1.3rem;
+// small
+$fontSizeS: 1rem;
+
+// 字体颜色
+$fontColorO: #8a4c62;
+
+// 圆角
+$bdRadius: 1rem;

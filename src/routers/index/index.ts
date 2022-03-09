@@ -1,28 +1,32 @@
 import {RouteObject} from "react-router";
 import React from "react";
 
-const routers:Array<RouteObject> = [
+const routers:Array<RouteObject|any> = [
     {
         index: true,
-        path:'/information',
-        element: () => React.lazy(() => import('../../pages/information'))
+        path:'information',
+        element: React.lazy(() => import('../../pages/information'))
     },
     {
-        path:'/resource',
-        element: () => React.lazy(() => import('../../pages/resource'))
+        path:'resource',
+        element: React.lazy(() => import('../../pages/resource'))
     },
     {
-        path:'/sample',
-        element: () => React.lazy(() => import('../../pages/sample'))
+        path:'sample',
+        element: React.lazy(() => import('../../pages/sample'))
     },
     {
-        path:'/hobby',
-        element: () => React.lazy(() => import('../../pages/hobby'))
+        path:'hobby',
+        element: React.lazy(() => import('../../pages/hobby'))
     },
     {
-        path:'/about',
-        element: () => React.lazy(() => import('../../pages/about'))
+        path:'about',
+        element: React.lazy(() => import('../../pages/about'))
     },
+    {
+        path: '*',
+        element: React.lazy(() => import('../../components/404'))
+    }
 ]
 
 export default routers

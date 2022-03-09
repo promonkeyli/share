@@ -8,7 +8,7 @@ const PoetryCard = React.lazy(() => import('../../components/other/poetry-card')
 
 export default function Index(){
     const navigate = useNavigate();
-    const homeClick = () => { navigate('/index') }
+    const homeClick = () => { navigate('/information') }
     return(
         <>
             <div className='theme-box'><ThemeCard/></div>

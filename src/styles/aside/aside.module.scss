@@ -1,16 +1,14 @@
-.pageBox {
-  width: 100%;
-  height: 100%;
-  .avatarBox {
+@import '../common/variable';
+
+.avatarBox {
     width: 100%;
-    padding: 30px 30px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   .title {
     padding-top: 20px;
-    font-size: 1.5rem;
+    font-size: $fontSizeM;
   }
   .navBox {
     width: 100%;
@@ -23,10 +21,15 @@
     padding: 20px;
     margin-bottom: 10px;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    font-size: $fontSizeM;
+    color: $fontColorO;
     cursor: pointer;
-    span:nth-child(2){
-      padding-left: 10px;
+    .icon {
+
+    }
+    .title {
+      margin-left: 10px;
     }
   }
-}

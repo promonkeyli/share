@@ -10,12 +10,14 @@ export default function Index(){
     const handleFoldCLick = () => { setIsFold(!isFold) }
     return(
         <div className='home-page'>
-            <aside className='aside' style={{width: asideWidth}}>
-                {/*<i className='iconfont icon-zhedie fold' onClick={handleFoldCLick}> </i>*/}
-                <Aside/>
+            {/*style={{width: asideWidth}}*/}
+            <aside className='aside'>
+                {/*{isFold ? <i className='iconfont icon-zhedie fold' onClick={handleFoldCLick}> </i> : null}*/}
+                <div className="page-container"><Aside/></div>
             </aside>
-            <main className='main' style={{width: mainWidth}}>
-               <Outlet/>
+            {/*style={{width: mainWidth}}*/}
+            <main className='main'>
+                <div className="page-container"><Outlet/></div>
             </main>
         </div>
     )

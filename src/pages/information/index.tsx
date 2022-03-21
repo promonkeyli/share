@@ -1,7 +1,7 @@
 export default function (){
     return (
         <>
-            Information
+            Under construction
         </>
     )
 }

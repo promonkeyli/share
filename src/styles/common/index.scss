@@ -88,13 +88,13 @@ html,body {
   grid-template-columns: 250px auto;
   .aside {
     grid-area: aside;
-    padding: 10px;
+    padding: 10px 1px 10px 10px;
     grid-column: 1/2;
     grid-row: 1/2;
   }
   .main {
     grid-area: main;
-    padding: 10px;
+    padding: 10px 10px 10px 1px;
     grid-column: 2/3;
     grid-row: 1/2;
   }
@@ -113,11 +113,20 @@ html,body {
 }
 
 // common page container
-.page-container {
+.page-container-left {
+  width: 100%;
+  height: 100%;
+  padding: 40px 20px;
+  background-color: $themeColor;
+  border-top-left-radius: $bdRadius;
+  border-bottom-left-radius: $bdRadius;
+}
+.page-container-right {
   width: 100%;
   height: 100%;
   padding: 20px;
   background-color: $themeColor;
-  border-radius: $bdRadius;
+  border-top-right-radius: $bdRadius;
+  border-bottom-right-radius: $bdRadius;
 }
 

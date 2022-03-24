@@ -13,11 +13,11 @@ export default function Index(){
             {/*style={{width: asideWidth}}*/}
             <aside className='aside'>
                 {/*{isFold ? <i className='iconfont icon-zhedie fold' onClick={handleFoldCLick}> </i> : null}*/}
-                <div className="page-container"><Aside/></div>
+                <div className="page-container-left"><Aside/></div>
             </aside>
             {/*style={{width: mainWidth}}*/}
             <main className='main'>
-                <div className="page-container"><Outlet/></div>
+                <div className="page-container-right"><Outlet/></div>
             </main>
         </div>
     )

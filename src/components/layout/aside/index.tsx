@@ -2,7 +2,8 @@ import styles from '../../../styles/aside/aside.module.scss';
 import Avatar from '../../../components/other/avatar';
 import {NavCardProps} from "../../../types/aside/index.type";
 import {useNavigate} from "react-router-dom";
-import navList from "./config";
+import navList, {socialList} from "./config";
+import {ReactElement} from "react";
 
 export default function (){
     return (
@@ -14,6 +15,10 @@ export default function (){
                </div>
                <div className={styles.navBox}>
                    {navList.map((item,n) => <NavCard title={item.title} icon={item.icon} key={n} path={item.path} />)}
+               </div>
+               {/*社交工具*/}
+               <div className={styles.socialBox}>
+                   {socialList.map(item => <SocialIcon key={item.url} icon={item.icon} url={item.url}/> )}
                </div>
            </div>
         </>
@@ -30,4 +35,8 @@ function NavCard(props: NavCardProps){
             <span className={styles.title}>{title}</span>
         </div>
     )
+}
+function SocialIcon(props:{icon: ReactElement, url: string}): ReactElement {
+    const handleIconClick = () => {window.open(props.url)}
+    return <span onClick={handleIconClick} className={styles.icon}>{props.icon}</span>
 }

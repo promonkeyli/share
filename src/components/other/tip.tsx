@@ -3,10 +3,12 @@
  * @author                                      Young
  * @date                                        2022/3/24
  */
-export default function (props: any){
+import styles from '../../styles/resource/resource.module.scss';
+export default function (props: { title: string }){
     return (
-        <>
-            tips
-        </>
+        <div className={styles.tipsBox}>
+            <span> </span>
+            <span>{props.title}</span>
+        </div>
     )
 }

@@ -3,10 +3,9 @@
  * @author                                      Young
  * @date                                        2022/3/24
  */
-export default function (){
+import styles from '../../styles/resource/resource.module.scss';
+export default function (props: {title: string, url: string}){
     return (
-        <>
-            分类具体项组件
-        </>
+        <div className={styles.cardBox} onClick={() => window.open(props.url)}>{props.title}</div>
     )
 }

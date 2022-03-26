@@ -9,6 +9,7 @@
 html,body {
   font-size: 12px;
 }
+// scroll
 // 整体页面容器
 .container {
   width: 100vw;
@@ -19,6 +20,7 @@ html,body {
 .content {
   width: 1200px;
   margin: 0 auto;
+  padding-top: 100px;
 }
 
 // them-box
@@ -43,6 +45,7 @@ html,body {
 .title-page {
   width: 100%;
   height: 200px;
+  color: #444;
   .title-welcome {
     font-size: 5rem;
     line-height: 1rem;
@@ -67,15 +70,17 @@ html,body {
   padding: 50px;
   font-size: 2rem;
   button {
-    width: 150px;
+    width: 200px;
     height: 50px;
-    border: none;
-    border-radius: 10px;
-    background: #77b767;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    color: #333;
+    background: $indexBtnBackGround;
   }
   button:hover{
-    width: 151px;
-    height: 51px;
+    width: 200px;
+    border: 2px solid #eee;
+    height: 50px;
   }
 }
 
@@ -128,5 +133,77 @@ html,body {
   background-color: $themeColor;
   border-top-right-radius: $bdRadius;
   border-bottom-right-radius: $bdRadius;
+}
+// footer
+.footer-box {
+  border-top: 1px solid #fff;
+  width: 100vw;
+  display: grid;
+  place-content: center;
+  height: 100px;
+}
+// index-page
+.index-page {
+  width: 100vw;
+  background: $indexLinear;
+}
+// wave
+/*body {
+  position: relative;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(118,218,255);
+  overflow: hidden;
+}
+body:before, body:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  min-width: 300vw;
+  min-height: 300vw;
+  background-color: #fff;
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+body:before{
+  bottom: 15vh;
+  border-radius: 45%;
+  animation-duration:10s;
+}
+body:after{
+  bottom: 12vh;
+  opacity: .5;
+  border-radius: 47%;
+  animation-duration: 10s;
+}
+@keyframes rotate {
+  0%{
+    transform: translate(-50%,0) rotateZ(0deg);
+  }
+  50%{
+    transform: translate(-50%,2%) rotateZ(180deg);
+  }
+  100%{
+    transform: translate(-50%,0) rotateZ(360deg);
+  }
+}*/
+
+// social 图标样式
+.github {
+  font-size: $socialFontSize;
+  color: $github;
+}
+.douban {
+  font-size: $socialFontSize;
+  color: $douban;
+}
+.bilibili {
+  font-size: $socialFontSize;
+  color: $bilibili;
+}
+.xhs {
+  font-size: $socialFontSize;
+  color: $xhs;
 }
 

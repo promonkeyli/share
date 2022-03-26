@@ -1,6 +1,6 @@
 // 主题色
 // theme
-$themeColor: rgba(76, 138, 115, .3);
+$themeColor: #eaeef1;
 // background
 $bgColor: #ced6e0;
 
@@ -11,9 +11,27 @@ $fontSizeL: 3rem;
 $fontSizeM: 1.3rem;
 // small
 $fontSizeS: 1rem;
+// social font size
+$socialFontSize: 2rem;
 
 // 字体颜色
 $fontColorO: #8a4c62;
+$xhs: #d24d4f;       // 小红书
+$bilibili: #54adde;  // b站
+$douban: #377e22;    // 豆瓣
+$github: #4b74bd;    // github
 
 // 圆角
-$bdRadius: 1rem;
+$bdRadius: 2rem;
+
+// 首页 渐变背景色
+$indexLinear: linear-gradient(334deg,#2bc0e4,#eaecc6);
+
+// 首页button背景色
+$indexBtnBackGround: rgba(157, 209, 215, .8);
+
+// tips 提示标志背景色
+$tipsColor: #40904d;
+
+//resource 界面card背景颜色
+$resourceCardBg: #fff;

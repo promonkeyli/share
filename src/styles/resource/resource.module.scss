@@ -2,8 +2,32 @@
 
 .page {
   width: 100%;
-  height: 100%;
+  overflow-y: auto;
+}
+// 锚点box
+.hrefBox {
+  position: fixed;
   display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  top: 100px;
+  right: 40px;
+  width: 150px;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #cacaca, #f0f0f0);
+  box-shadow:  21px -21px 41px #bebebe,
+  -21px 21px 41px #ffffff;
+  a {
+    text-decoration: none;
+    outline: none;
+    font-size: $fontSizeS;
+    color: $fontColor4;
+    margin-top: 10px;
+    border-bottom: 1px solid $tipsColor;
+  }
+  a:hover {
+    color: $fontColorO;
+  }
 }
 // item 项
 .itemBox {
@@ -16,8 +40,8 @@
     display: flex;
     flex-wrap: wrap;
     padding: 10px ;
-    span:not(:first-child) {
-      margin-left: 10px;
+    span {
+      margin: 0 10px 10px 0;
     }
   }
 }
@@ -39,12 +63,23 @@
 
 // card box
 .cardBox {
-  width: 200px;
-  height: 50px;
+  width: 300px;
+  height: 60px;
   display: grid;
   border-radius: 5px;
-  background-color: $resourceCardBg;
-  place-content: center;
+  background: $resourceCardBg;
+  box-shadow: $resourceCardShadow;
+  align-content: center;
+  padding-left: 20px;
+  font-size: $fontSizeM;
+  color: $fontColorO;
+  justify-content: start;
+}
+// card description
+.cardDesc {
+  font-size: .8rem;
+  margin-top: 5px;
+  color: #aaa;
 }
 .cardBox:hover {
   border-radius: 5px;

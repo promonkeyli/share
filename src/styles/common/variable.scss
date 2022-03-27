@@ -8,7 +8,7 @@ $bgColor: #ced6e0;
 // large
 $fontSizeL: 3rem;
 // middle
-$fontSizeM: 1.3rem;
+$fontSizeM: 1.2rem;
 // small
 $fontSizeS: 1rem;
 // social font size
@@ -16,6 +16,7 @@ $socialFontSize: 2rem;
 
 // 字体颜色
 $fontColorO: #8a4c62;
+$fontColor4: #444;
 $xhs: #d24d4f;       // 小红书
 $bilibili: #54adde;  // b站
 $douban: #377e22;    // 豆瓣
@@ -34,4 +35,5 @@ $indexBtnBackGround: rgba(157, 209, 215, .8);
 $tipsColor: #40904d;
 
 //resource 界面card背景颜色
-$resourceCardBg: #fff;
+$resourceCardBg: #e4f7fb;;
+$resourceCardShadow:  5px -5px 4px #c4d4d8, -5px 5px 4px #ffffff;

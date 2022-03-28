@@ -8,19 +8,17 @@ import {ReactElement} from "react";
 export default function (){
     return (
         <>
-           <div className={styles.innerBox}>
-               <div className={styles.avatarBox}>
-                   <Avatar/>
-                   <p className={styles.title}>Young`s Home Page</p>
-               </div>
-               <div className={styles.navBox}>
-                   {navList.map((item,n) => <NavCard title={item.title} icon={item.icon} key={n} path={item.path} />)}
-               </div>
-               {/*社交工具*/}
-               <div className={styles.socialBox}>
-                   {socialList.map(item => <SocialIcon key={item.url} icon={item.icon} url={item.url}/> )}
-               </div>
-           </div>
+            <div className={styles.avatarBox}>
+                <Avatar/>
+                <p className={styles.title}>Young`s Home Page</p>
+            </div>
+            <div className={styles.navBox}>
+                {navList.map((item,n) => <NavCard title={item.title} icon={item.icon} key={n} path={item.path} />)}
+            </div>
+            {/*社交工具*/}
+            <div className={styles.socialBox}>
+                {socialList.map(item => <SocialIcon key={item.url} icon={item.icon} url={item.url}/> )}
+            </div>
         </>
     )
 }

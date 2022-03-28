@@ -6,9 +6,14 @@
 * {
   box-sizing: border-box;
 }
-html,body {
-  font-size: 12px;
-}
+
+// 媒体查询，根据视口更改字体大小
+// iphone5（宽度320）或者更小尺寸的屏幕
+@media only screen and (max-width: 374px) { html,body { font-size: 3px; } }
+// iphone 6/7/8 或者iphone X（宽度375 px）的屏幕
+@media only screen and (min-width: 375px) and (max-width: 413px){ html,body { font-size: 6px; } }
+// iphone 6/7/8 plus 或者更大尺寸的屏幕
+@media only screen and (min-width: 414px) { html,body { font-size: 12px; } }
 // scroll
 // 整体页面容器
 .container {
@@ -18,7 +23,7 @@ html,body {
 }
 // 版心
 .content {
-  width: 1200px;
+  width: 90vw;
   margin: 0 auto;
   padding-top: 100px;
 }
@@ -62,12 +67,10 @@ html,body {
 
 // nav btn
 .nav-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-content: center;
   width: 100%;
-  height: 400px;
-  padding: 50px;
+  height: 40%;
   font-size: 2rem;
   button {
     width: 200px;
@@ -145,6 +148,7 @@ html,body {
 // index-page
 .index-page {
   width: 100vw;
+  min-width: 1200px;
   background: $indexLinear;
 }
 // wave

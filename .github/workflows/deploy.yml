@@ -17,17 +17,17 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
-        # 安装node环境（actions/setup-node@v3.0.0库）
-      - name: install node.js
-        uses: actions/setup-node@v3.0.0
+        # 拉取指定分支源码（actions/checkout@master库）
+      - name: install node
+        uses: actions/setup-node@v3
 
+      - name: dependencies install and  build and test
         # 依赖安装
-      - name: install dependencies
-        run: npm install
-
-        # 打包构建
-      - name: project build
-        run: npm run build
+      - run: npm ci
+        # 项目打包
+      - run: npm run build --if-present
+        # 项目测试
+      - run: npm test
 
       # 登陆阿里云镜像容器服务、打包镜像、推送镜像
 #      - name: build docker images

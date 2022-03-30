@@ -1,6 +1,6 @@
-import React, {Suspense, useEffect} from 'react'
+import React, {Suspense} from 'react'
 import './styles/common/index.scss'
-import {Routes, Route, useNavigate} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import routers from './routers/index';
 import {RouteObject} from "react-router";
 const Home  = React.lazy(() => import('./pages/home'))
@@ -8,7 +8,7 @@ const Index  = React.lazy(() => import('./pages/index'))
 const NotFound  = React.lazy(() => import('./components/404'))
 
 function App() {
-    useEffect(() => { const navigate = useNavigate(); navigate('/home') },[])
+    // useEffect(() => { const navigate = useNavigate(); navigate('/home') },[])
   return (
       <div className='container'>
           <Suspense fallback={<>loading</>}>

@@ -10,7 +10,7 @@ function Resource(){
             {
                 configList.map(item =>
                     <div className={styles.itemBox} key={item.tipTitle}>
-                        {/*锚点链接*/}
+                        {/*锚点链接test*/}
                         <div id={item.id} className={styles.itemTipsBox}><Tips title={item.tipTitle}/></div>
                         <div className={styles.itemCardBox}>
                             {item.children.map(subItem =>

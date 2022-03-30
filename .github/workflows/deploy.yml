@@ -30,8 +30,8 @@ jobs:
         run: npm run build --if-present
 
         # 项目测试
-      - name: project test
-        run: npm test
+#      - name: project test
+#        run: npm test
 
       # 登陆阿里云镜像容器服务、打包镜像、推送镜像
 #      - name: build docker images

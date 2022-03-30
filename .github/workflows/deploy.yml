@@ -33,9 +33,10 @@ jobs:
       - name: build  images
         run:  docker build -t frontend:latest .
 
-        # 登陆阿里云镜像容器服务
+        # 登陆阿里云镜像容器服务()
+        # Cannot perform an interactive login from a non TTY device 报错需要添加 winpty
       - name: login aliyun
-        run: docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+        run: winpty docker login --username=${{ secrets.DOCKER_USERNAME }} {{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
           
         # 打版本
 #      - name: tag
@@ -43,7 +44,7 @@ jobs:
 
         # push docker images
       - name: push docker images
-        run: docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+        run: docker push {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
         # 登陆云服务器拉取打包好的镜像
   deploy:

@@ -29,7 +29,7 @@ jobs:
       - name: project build
         run: npm run build --if-present
 
-        # docker打包镜像
+        # build images
       - name: build  images
         run:  docker build -t frontend:latest .
 

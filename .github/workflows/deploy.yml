@@ -33,8 +33,7 @@ jobs:
       - name: build  images
         run:  docker build -t frontend:latest .
 
-        # 登陆阿里云镜像容器服务()
-        # Cannot perform an interactive login from a non TTY device 报错需要添加 winpty
+        # 登陆阿里云镜像容器服务
       - name: login aliyun
         run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
 

@@ -38,8 +38,8 @@ jobs:
         run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
 
         # 打版本
-#      - name: tag
-#        run: docker tag frontend {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+      - name: tag
+        run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
         # push docker images
       - name: push docker images

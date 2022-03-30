@@ -29,27 +29,23 @@ jobs:
       - name: project build
         run: npm run build --if-present
 
-        # 项目测试
-#      - name: project test
-#        run: npm test
-
       # 登陆阿里云镜像容器服务、打包镜像、推送镜像
-#      - name: build docker images
-#        run: |
-#          # login aliyun
-#          docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+      - name: build docker images
+        run: |
+          # login aliyun
+          docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
 #          # 使用当前目录的 Dockerfile 创建镜像，标签为 frontend:latest
-#          docker build -t frontend:latest .
+          docker build -t frontend:latest .
 #          # 打标签
-#          docker tag share registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+          docker tag share registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
 #          # 推送镜像
-#          docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+          docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
 
       # 登陆云服务器拉取打包好的镜像
-#      - name: ssh login ECS
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          password: ${{ secrets.SSH_PASSWORD }}
-#          script: cd /home/react-demo/ && sh react-demo.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+      - name: ssh login ECS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: cd /home/react-demo/ && sh react-demo.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}

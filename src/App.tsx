@@ -8,8 +8,7 @@ const Index  = React.lazy(() => import('./pages/index'))
 const NotFound  = React.lazy(() => import('./components/404'))
 
 function App() {
-    const navigate = useNavigate();
-    useEffect(() => { navigate('/home') },[])
+    useEffect(() => { const navigate = useNavigate(); navigate('/home') },[])
   return (
       <div className='container'>
           <Suspense fallback={<>loading</>}>

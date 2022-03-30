@@ -3,7 +3,7 @@
  * @author                                      Young
  * @date                                        2022/2/23
  */
-export default function (){
+function TitleCard(){
     return (
         <div className='title-page'>
             <p className='title-welcome'>Welcome to</p>
@@ -16,3 +16,5 @@ export default function (){
         </div>
     )
 }
+
+export default TitleCard;

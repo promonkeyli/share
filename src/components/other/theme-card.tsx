@@ -6,7 +6,7 @@
 
 import {circleColorType} from "../../types/common"
 
-export default function (){
+function ThemeCard(){
     const circleColorList:Array<circleColorType> = [
         {color: '#62c553'},
         {color: '#ed695e'},
@@ -30,3 +30,5 @@ export default function (){
         </>
     )
 }
+
+export default ThemeCard;

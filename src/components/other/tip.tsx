@@ -4,7 +4,7 @@
  * @date                                        2022/3/24
  */
 import styles from '../../styles/resource/resource.module.scss';
-export default function (props: { title: string }){
+function Tips(props: { title: string }){
     return (
         <div className={styles.tipsBox}>
             <span> </span>
@@ -12,3 +12,5 @@ export default function (props: { title: string }){
         </div>
     )
 }
+
+export default Tips;

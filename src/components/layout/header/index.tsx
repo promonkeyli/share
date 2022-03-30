@@ -1,7 +1,8 @@
-export default function (){
+function Header(){
     return(
         <>
             header
         </>
     )
 }
+export default Header;

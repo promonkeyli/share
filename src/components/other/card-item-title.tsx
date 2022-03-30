@@ -3,10 +3,12 @@
  * @author                                      Young
  * @date                                        2022/3/24
  */
-export default function (props: {title: string}){
+function CardItemTitle (props: {title: string}){
     return (
         <>
             分类标题
         </>
     )
 }
+
+export default CardItemTitle;

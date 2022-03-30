@@ -3,8 +3,10 @@
  * @author                                      Young
  * @date                                        2022/3/8
  */
-export default function (){
+function Avatar(){
     return (
         <div className='avatar'> </div>
     )
 }
+
+export default Avatar;

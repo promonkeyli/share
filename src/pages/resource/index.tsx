@@ -2,7 +2,8 @@ import styles from '../../styles/resource/resource.module.scss';
 import Tips from '../../components/other/tip';
 import CardItem from '../../components/other/card-item';
 import configList from "./config";
-export default function (){
+
+function Resource(){
     return (
         <div className={styles.page} style={{height: document.documentElement.clientHeight - 90}}>
             <div className={styles.hrefBox}>{configList.map(item => <a key={item.id} href={`#${item.id}`}>{`#${item.tipTitle}`}</a>)}</div>
@@ -22,3 +23,5 @@ export default function (){
         </div>
     )
 }
+
+export default Resource;

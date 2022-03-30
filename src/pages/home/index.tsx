@@ -1,13 +1,13 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom";
 
-const ThemeCard = React.lazy(() => import('../../components/other/theme-card'))
+// const ThemeCard = React.lazy(() => import('../../components/other/theme-card'))
 const TitleCard = React.lazy(() => import('../../components/other/title-card'))
-const PersonalCard = React.lazy(() => import('../../components/other/personal-card'))
-const PoetryCard = React.lazy(() => import('../../components/other/poetry-card'))
+// const PersonalCard = React.lazy(() => import('../../components/other/personal-card'))
+// const PoetryCard = React.lazy(() => import('../../components/other/poetry-card'))
 const Footer = React.lazy(() => import('../../components/layout/footer'))
 
-export default function Index(){
+function Home(){
     const navigate = useNavigate();
     const homeClick = () => { navigate('/information') }
     return(
@@ -30,3 +30,5 @@ export default function Index(){
         </div>
     )
 }
+
+export default Home;

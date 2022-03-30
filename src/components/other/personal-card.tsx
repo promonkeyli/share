@@ -3,10 +3,12 @@
  * @author                                      Young
  * @date                                        2022/2/23
  */
-export default function (){
+function PersonalCard(){
     return (
         <div className='personnel-page'>
             personnel
         </div>
     )
 }
+
+export default PersonalCard;

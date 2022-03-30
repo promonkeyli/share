@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 import navList, {socialList} from "./config";
 import {ReactElement} from "react";
 
-export default function (){
+function Aside(){
     return (
         <>
             <div className={styles.avatarBox}>
@@ -38,3 +38,5 @@ function SocialIcon(props:{icon: ReactElement, url: string}): ReactElement {
     const handleIconClick = () => {window.open(props.url)}
     return <span onClick={handleIconClick} className={styles.icon}>{props.icon}</span>
 }
+
+export default Aside;

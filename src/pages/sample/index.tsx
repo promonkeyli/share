@@ -1,7 +1,9 @@
-export default function (){
+function Sample(){
     return (
         <>
             Under construction
         </>
     )
 }
+
+export default Sample;

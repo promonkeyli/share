@@ -1,7 +1,9 @@
-export default function (){
+function Hobby(){
     return (
         <>
             Under construction
         </>
     )
 }
+
+export default Hobby;

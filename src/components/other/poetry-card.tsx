@@ -3,10 +3,12 @@
  * @author                                      Young
  * @date                                        2022/2/23
  */
-export default function (){
+function PoetryCard(){
     return (
         <>
             poetry
         </>
     )
 }
+
+export default PoetryCard;

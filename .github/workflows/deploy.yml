@@ -35,7 +35,7 @@ jobs:
 
         # 登陆阿里云镜像容器服务
       - name: login aliyun
-        run: docker login --username=${{ secrets.DOCKER_USERNAME }} {{secrets.DOCKER_DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} {{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
           
         # 打版本
 #      - name: tag

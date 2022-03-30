@@ -18,8 +18,8 @@ jobs:
         uses: actions/checkout@master
 
         # node环境构建（actions/setup-node@v3库）
-#      - name: install node
-#        uses: actions/setup-node@v3
+      - name: install node
+        uses: actions/setup-node@v3
 
         # package.json依赖安装
       - name: dependencies install
@@ -29,19 +29,19 @@ jobs:
       - name: project build
         run: npm run build --if-present
 
-        # 登陆阿里云镜像容器服务、打包镜像、推送镜像
-#      - name: build docker images
-#        run: |
-#
-#          docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
-##          # 使用当前目录的 Dockerfile 创建镜像，标签为 frontend:latest
-#          docker build -t frontend:latest .
-##          # 打标签
-#          docker tag share registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
-##          # 推送镜像
-#          docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+        # docker打包镜像
+      - name: build docker images
+        run: |
+        # 登陆阿里云镜像容器服务
+           docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
+           # 利用Dockerfile 创建镜像，标签为 frontend:latest .代表当前目录
+           docker build -t frontend:latest .
+           # 打标签
+           docker tag frontend registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+           # 推送镜像
+           docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
 
-      # 登陆云服务器拉取打包好的镜像
+#       # 登陆云服务器拉取打包好的镜像
 #      - name: ssh login ECS
 #        uses: appleboy/ssh-action@master
 #        with:

@@ -31,17 +31,21 @@ jobs:
 
         # docker打包镜像
       - name: build docker images
-        run: |
-        # 登陆阿里云镜像容器服务
-           docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
-           # 利用Dockerfile 创建镜像，标签为 frontend:latest .代表当前目录
-           docker build -t frontend:latest .
-           # 打标签
-           docker tag frontend registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
-           # 推送镜像
-           docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+        run:  docker build -t frontend:latest .
 
-#       # 登陆云服务器拉取打包好的镜像
+        # 登陆阿里云镜像容器服务
+      - name: login aliyun
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} {{secrets.DOCKER_DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+          
+        # 打版本
+#      - name: tag
+#        run: docker tag frontend {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+
+        # push docker images
+      - name: push docker images
+        run: docker push {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+
+        # 登陆云服务器拉取打包好的镜像
 #      - name: ssh login ECS
 #        uses: appleboy/ssh-action@master
 #        with:

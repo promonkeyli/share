@@ -30,7 +30,7 @@ jobs:
         run: npm run build --if-present
 
         # docker打包镜像
-      - name: build docker images
+      - name: build  images
         run:  docker build -t frontend:latest .
 
         # 登陆阿里云镜像容器服务
@@ -46,10 +46,15 @@ jobs:
         run: docker push {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
         # 登陆云服务器拉取打包好的镜像
-#      - name: ssh login ECS
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.SSH_HOST }}
-#          username: ${{ secrets.SSH_USERNAME }}
-#          password: ${{ secrets.SSH_PASSWORD }}
+  deploy:
+    needs: [build]
+    name: pull docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
 #          script: cd /home/react-demo/ && sh react-demo.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}

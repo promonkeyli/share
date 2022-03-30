@@ -22,8 +22,8 @@ jobs:
 #        uses: actions/setup-node@v3
 
         # package.json依赖安装
-#      - name: dependencies install
-#        run: npm install
+      - name: dependencies install
+        run: npm install
 
         # 打包构建
       - name: project build

@@ -35,7 +35,7 @@ jobs:
 
         # 登陆阿里云镜像容器服务
       - name: login aliyun
-        run: docker login --username=${{ secrets.DOCKER_USERNAME }} {{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} registry.cn-hangzhou.aliyuncs.com --password=${{ secrets.DOCKER_PASSWORD }}
           
         # 打版本
 #      - name: tag
@@ -43,7 +43,7 @@ jobs:
 
         # push docker images
       - name: push docker images
-        run: docker push {{secrets.DOCKER_DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+        run: docker push registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
 
         # 登陆云服务器拉取打包好的镜像
   deploy:

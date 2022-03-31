@@ -53,4 +53,6 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          script: whoiam
+          script: |
+            docker pull ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+            docker images ls

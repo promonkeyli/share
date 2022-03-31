@@ -1,7 +1,7 @@
 function Information(){
     return (
         <>
-            Under construction
+            前沿资讯
         </>
     )
 }

@@ -46,15 +46,11 @@ jobs:
         run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
         # 登陆云服务器拉取打包好的镜像
-  deploy:
-    needs: [build]
-    name: pull docker
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy
+      - name: ssh deploy
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: cd /home/frontend/ && sh frontend.sh ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: whoiam

@@ -45,6 +45,10 @@ jobs:
       - name: push docker images
         run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
+ deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
         # 登陆云服务器拉取打包好的镜像
       - name: ssh deploy
         uses: appleboy/ssh-action@master

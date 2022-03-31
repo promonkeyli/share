@@ -12,11 +12,7 @@ jobs:
   build-images:
     runs-on: ubuntu-latest
     steps:
-      - name: build images
-        run: docker build -t fronted:latest .
-      - name: login aliyun
-        run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
-      - name: tag
-        run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
-      - name: push images
-        run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+      - run: docker build -t fronted:latest ./Dockerfile .
+      - run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+      - run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+      - run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest

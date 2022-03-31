@@ -3,12 +3,12 @@ import React from "react";
 
 const routers:Array<RouteObject|any> = [
     {
-        index: true,
         path:'information',
         element: React.lazy(() => import('../../pages/information'))
     },
     {
         path:'resource',
+        index: true,
         element: React.lazy(() => import('../../pages/resource'))
     },
     {

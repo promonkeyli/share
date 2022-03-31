@@ -54,5 +54,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
+            docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
             docker pull ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
             docker images ls

@@ -1,0 +1,22 @@
+# GitHub Action Name
+name: build docker images
+
+# Execute Timing & Appoint Branch
+on:
+  push:
+    branches:
+      - master
+
+# Jobs
+jobs:
+  build-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build images
+        run: docker build -t fronted:latest .
+      - name: login aliyun
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+      - name: tag
+        run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+      - name: push images
+        run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest

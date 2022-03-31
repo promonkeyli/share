@@ -30,7 +30,7 @@ jobs:
       - name: project build
         run: npm run build --if-present
 
-        # build images
+        # build images 此处会找当前目录下的Dockerfile构建镜像
       - name: build  images
         run:  docker build -t frontend:latest .
 

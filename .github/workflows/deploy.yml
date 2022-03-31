@@ -14,7 +14,7 @@ jobs:
   npm-build:
     runs-on: ubuntu-latest
     steps:
-        # 拉取指定分支源码（actions/checkout@master库）
+      # 拉取指定分支源码（actions/checkout@master库）
       - name: checkout
         uses: actions/checkout@master
 
@@ -30,12 +30,12 @@ jobs:
       - name: project build
         run: npm run build --if-present
 
-  # actions images build
- docker-build:
+    # actions images build
+  docker-build:
     runs-on: ubuntu-latest
     needs: [npm-build]
     steps:
-        # build images
+      # build images
       - name: build  images
         run:  docker build -t frontend:latest .
 
@@ -48,20 +48,20 @@ jobs:
         run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
   # push images to Aliyun registry
- docker-push:
+  docker-push:
     runs-on: ubuntu-latest
     needs: [docker-build]
     steps:
-        # push docker images
+      # push docker images
       - name: push docker images
         run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
 
   # ssh Tecent ECS docker pull and run images for deploy
- SSH-ECS-Deploy:
+  SSH-ECS-Deploy:
     runs-on: ubuntu-latest
     needs: [docker-push]
     steps:
-        # 登陆云服务器拉取打包好的镜像
+      # 登陆云服务器拉取打包好的镜像
       - name: ssh deploy
         uses: appleboy/ssh-action@master
         with:

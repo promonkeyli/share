@@ -1,5 +1,5 @@
 # gitHub Action name
-name: deploy front-end
+name: push-code
 
 # execute timing / branches
 on:

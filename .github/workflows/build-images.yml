@@ -1,18 +1,47 @@
-# GitHub Action Name
-name: build docker images
+# gitHub Action name
+name: build-images
 
-# Execute Timing & Appoint Branch
+# execute timing / branches
 on:
   push:
     branches:
       - master
 
-# Jobs
+# jobs
 jobs:
+
+  # build-images
   build-images:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t fronted:latest .
-      - run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+      # 拉取指定分支源码（actions/checkout@master库）
+      - name: checkout
+        uses: actions/checkout@master
+
+        # node环境构建（actions/setup-node@v3库）
+      - name: install node
+        uses: actions/setup-node@v3
+
+#        # package.json依赖安装
+#      - name: dependencies install
+#        run: npm install
+#
+#        # 打包构建
+#      - name: project build
+#        run: npm run build --if-present
+
+        # build images 此处会找当前目录下的Dockerfile构建镜像
+      - name: build  images
+        run:  docker build -t frontend:latest .
+
+        # 登陆阿里云镜像容器服务
+      - name: login aliyun
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+
+        # 打版本
+      - name: tag
+        run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+
+        # push docker images
+      - name: push docker images
+        run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest

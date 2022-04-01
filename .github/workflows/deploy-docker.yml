@@ -1,0 +1,94 @@
+# gitHub Action name
+name: deploy docker images include code
+
+# execute timing / branches
+on:
+  pull_request:
+    branches:
+      - master
+
+# jobs
+jobs:
+
+  # npm build
+  npm-build:
+    runs-on: ubuntu-latest
+    steps:
+      # 拉取指定分支源码（actions/checkout@master库）
+      - name: checkout
+        uses: actions/checkout@master
+
+        # node环境构建（actions/setup-node@v3库）
+      - name: install node
+        uses: actions/setup-node@v3
+
+        # package.json依赖安装
+      - name: dependencies install
+        run: npm install
+
+        # 打包构建
+      - name: project build
+        run: npm run build --if-present
+
+  # actions images build
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: [npm-build]
+    steps:
+      # build images
+      - name: build  images
+        run:  docker build -t frontend:latest .
+
+        # 登陆阿里云镜像容器服务
+      - name: login aliyun
+        run: docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+
+        # 打版本
+      - name: tag
+        run: docker tag frontend ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+
+  # push images to Aliyun registry
+  docker-push:
+    runs-on: ubuntu-latest
+    needs: [docker-build]
+    steps:
+      # push docker images
+      - name: push docker images
+        run: docker push ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+
+  # ssh Tecent ECS docker pull and run images for deploy
+  SSH-ECS-Deploy:
+    runs-on: ubuntu-latest
+    needs: [docker-push]
+    steps:
+      # 登陆云服务器拉取打包好的镜像
+      - name: ssh deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          port: 22
+          script: |
+            echo -e "---------登录镜像容器服务--------"
+            # 登录阿里云镜像容器服务
+            docker login --username=${{ secrets.DOCKER_USERNAME }} ${{secrets.DOCKER_REGISTRY}} --password=${{ secrets.DOCKER_PASSWORD }}
+            echo -e "---------停掉镜像--------"
+            # 停掉容器
+            docker stop frontend
+            echo -e "---------删除本地容器和镜像--------"
+            # 删除本地容器
+            docker rm frontend
+            # 删除本地镜像
+            docker rmi ${{secrets.DOCKER_REGISTRY}}/frontend:latest
+            echo -e "---------拉取镜像--------"
+            # 拉取镜像
+            docker pull ${{secrets.DOCKER_REGISTRY}}/homepage-frontend/frontend:latest
+            echo -e "---------创建容器并运行容器--------"
+            # -rm: docker会在容器退出时删除与它关联的数据卷
+            # -d: 后台运行容器，并返回容器ID
+            # -p: 端口映射，本机端口:容器端口
+            # --name: 指定容器名称
+            # 最后一个为镜像名称
+            docker run --rm -d -p 80:80 --name frontend registry.cn-hangzhou.aliyuncs.com/homepage-frontend/frontend:latest
+            echo -e "---------执行完毕--------"

@@ -10,6 +10,7 @@ function Aside(){
         <>
             <div className={styles.avatarBox}>
                 <Avatar/>
+                123
                 <p className={styles.title}>Young`s Home Page</p>
             </div>
             <div className={styles.navBox}>

@@ -3,9 +3,9 @@ name: push-code
 
 # execute timing / branches
 on:
-  pull_request:
+  push:
     branches:
-      - master
+      - develop
 
 # jobs
 jobs:
@@ -23,27 +23,17 @@ jobs:
         uses: actions/setup-node@v3
 
         # package.json依赖安装
-      - name: dependencies install
-        run: npm install
+      - name: dependencies install & build
+        run: |
+          npm install
+          npm run build --if-present
 
-        # 打包构建
-      - name: project build
-        run: npm run build --if-present
-
-  # ssh Tecent ECS docker pull and run images for deploy
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      # 登陆云服务器拉取打包好的镜像
-      - name: ssh put build
-        uses: appleboy/ssh-action@master
+        # 登陆云服务器拉取打包好的镜像
+      - name: SCP build files
+        uses: siva1024/scp-deployer@latest
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
-          port: 22
-          script: |
-            echo -e "---------SSH登录腾讯云服务器--------"
-
-            echo -e "---------文件上传完毕--------"
+         host: ${{ secrets.SSH_HOST }}
+         username: ${{ secrets.SSH_USERNAME }}
+         key: ${{ secrets.SSH_KEY }}
+         source: "build"
+         target: "~/data/nginx/html"

@@ -27,17 +27,16 @@ jobs:
         run: |
           npm install
           npm run build --if-present
-          pwd
-          ls
 
         # 登陆云服务器拉取打包好的镜像
-      - name: ssh put build
-        uses: appleboy/ssh-action@master
+      - name: SCP build files
+        uses: siva1024/scp-deployer@latest
         with:
          host: ${{ secrets.SSH_HOST }}
          username: ${{ secrets.SSH_USERNAME }}
-         password: ${{ secrets.SSH_PASSWORD }}
-         port: 22
+         key: ${{ secrets.SSH_KEY }}
+         source: "build"
+         target: "~/data/nginx/html"
          script: |
             echo -e "---------SSH登录腾讯云服务器--------"
             echo -e "---------文件上传完毕--------"

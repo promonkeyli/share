@@ -37,6 +37,3 @@ jobs:
          key: ${{ secrets.SSH_KEY }}
          source: "build"
          target: "~/data/nginx/html"
-         script: |
-            echo -e "---------SSH登录腾讯云服务器--------"
-            echo -e "---------文件上传完毕--------"

@@ -52,11 +52,11 @@
   height: 200px;
   color: #444;
   .title-welcome {
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 1rem;
   }
   .title-who {
-    font-size: 5rem;
+    font-size: 4rem;
     line-height: 1rem;
   }
   .title-tip {
@@ -143,13 +143,13 @@
   border-top: 1px solid #fff;
   width: 100vw;
   display: grid;
+  text-align: center;
   place-content: center;
-  height: 100px;
+  min-height: 100px;
 }
 // index-page
 .index-page {
   width: 100vw;
-  min-width: 1200px;
   background: $indexLinear;
 }
 // wave
@@ -210,5 +210,9 @@ body:after{
 .xhs {
   font-size: $socialFontSize;
   color: $xhs;
+}
+.hexo {
+  font-size: $socialFontSize;
+  color: $hexo;
 }
 

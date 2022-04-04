@@ -1,6 +1,8 @@
 @import 'normalize';
 @import 'variable';
 @import './iconfont/iconfont';
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
 
 // border-box
 * {
@@ -214,5 +216,49 @@ body:after{
 .hexo {
   font-size: $socialFontSize;
   color: $hexo;
+}
+
+// clock style
+.clock-box {
+  position: relative;
+  width: 450px;
+  height: 180px;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.4s ease;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  color: #824f61;
+  align-items: center;
+  border-radius: 10px;
+  background: #f1f8fe;
+  box-shadow:  -7px 7px 14px #c3c9ce,
+  7px -7px 14px #ffffff;
+  .clock-tense {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .clock-item {
+    display: grid;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+    place-content: center;
+    background: linear-gradient(225deg, #d9dfe5, #ffffff);
+    box-shadow:  -5px 5px 10px #d6dde2,
+    5px -5px 10px #ffffff;
+  }
+  .clock-number {
+    display: grid;
+    place-content: center;
+  }
+}
+.clock {
+  font-size: $socialFontSize;
+  color: $xhs;
 }
 

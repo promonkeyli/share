@@ -10,7 +10,7 @@ const githubIcon   = <i className='iconfont icon-github1 github'> </i>;         
 const xhsIcon      = <i className='iconfont icon-xiaohongshu1 xhs'> </i>;               // 小红书图标
 const douBanIcon   = <i className='iconfont icon-shejiaotubiao-48 douban'> </i>;        // 豆瓣图标
 const bIcon        = <i className='iconfont icon-bilibili bilibili'> </i>;              // b站图标
-const hexoIcon     = <i className='iconfont icon-hexo hexo'> </i>;                           // hexo博客图标
+const hexoIcon     = <i className='iconfont icon-hexo hexo'> </i>;                      // hexo博客图标
 
 const navList: Array<NavCardProps> = [
     {

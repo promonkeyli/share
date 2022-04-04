@@ -27,13 +27,17 @@ jobs:
         run: |
           npm install
           npm run build --if-present
+        env:
+          CI: false
 
-        # 登陆云服务器拉取打包好的镜像
-      - name: SCP build files
-        uses: siva1024/scp-deployer@latest
-        with:
-         host: ${{ secrets.SSH_HOST }}
-         username: ${{ secrets.SSH_USERNAME }}
-         key: ${{ secrets.SSH_KEY }}
-         source: "build"
-         target: "~/data/nginx/html"
+        # build文件copy至nginx/html文件夹中
+      - name: ssh deploy
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+         SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+         ARGS: "-rltgoDzvO --delete"
+         SOURCE: "build/"
+         REMOTE_HOST: ${{ secrets.SSH_HOST }}
+         REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+         TARGET: ${{ secrets.SSH_TARGET }}
+         EXCLUDE: "/build/, /node_modules/"

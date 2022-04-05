@@ -1,14 +1,16 @@
 import styles from '../../styles/information/information.module.scss';
 import Clock from '../../components/other/clock';
+import Weather from "../../components/other/weather";
+
 function Information(){
     return (
         <div className={styles.infoBox}>
             <div className={styles.tipBox}>
-                <div>left</div>
+                <div><Weather/></div>
                 <div><Clock/></div>
             </div>
-            <div className={styles.rankBox}>编程语言排行榜</div>
-            <div className={styles.magazineBox}>前端刊物</div>
+            <div style={{padding:'10px'}}><div className={styles.rankBox}>编程语言排行榜</div></div>
+            <div style={{padding: '10px'}}><div className={styles.magazineBox}>前端刊物</div></div>
         </div>
     )
 }

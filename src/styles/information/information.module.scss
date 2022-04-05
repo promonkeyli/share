@@ -14,13 +14,21 @@
   display: grid;
   place-content: center;
   width: 100%;
-  height: 300px;
-  background-color: #2bc0e4;
+  height: 200px;
+  margin-top: 40px;
+  border-radius: 15px;
+  background: linear-gradient(315deg, #b1c2cd, #d3e7f4);
+  box-shadow:  -6px -6px 12px #b1c2cd,
+  6px 6px 12px #d9eefb;
 }
 .magazineBox {
   display: grid;
   place-content: center;
   width: 100%;
-  height: calc(100% - 300px);
-  background-color: #377e22;
+  height: 200px;
+  border-radius: 15px;
+  margin-top: 30px;
+  background: linear-gradient(315deg, #b1c2cd, #d3e7f4);
+  box-shadow:  -6px -6px 12px #b1c2cd,
+  6px 6px 12px #d9eefb;
 }

@@ -19,7 +19,6 @@ const Clock = function (){
     }, 1000);
     return (
         <div className='clock-box'>
-
             <div className='clock-tense'>{tense}</div>
             <div className='clock-item'>
                 <div className='clock-number'>{hour}</div>

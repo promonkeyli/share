@@ -9,8 +9,8 @@ function Information(){
                 <div><Weather/></div>
                 <div><Clock/></div>
             </div>
-            <div style={{padding:'10px'}}><div className={styles.rankBox}>编程语言排行榜</div></div>
-            <div style={{padding: '10px'}}><div className={styles.magazineBox}>前端刊物</div></div>
+            {/*<div style={{padding:'10px'}}><div className={styles.rankBox}>编程语言排行榜</div></div>*/}
+            {/*<div style={{padding: '10px'}}><div className={styles.magazineBox}>前端刊物</div></div>*/}
         </div>
     )
 }

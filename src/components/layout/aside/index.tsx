@@ -7,7 +7,7 @@ import {ReactElement} from "react";
 
 function Aside(){
     return (
-        <>
+        <div className={styles.asideBox}>
             <div className={styles.avatarBox}>
                 <Avatar/>
                 <p className={styles.title}>Young`s Home Page</p>
@@ -19,7 +19,7 @@ function Aside(){
             <div className={styles.socialBox}>
                 {socialList.map(item => <SocialIcon key={item.url} icon={item.icon} url={item.url}/> )}
             </div>
-        </>
+        </div>
     )
 }
 

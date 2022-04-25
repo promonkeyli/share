@@ -2,11 +2,14 @@
 
 ### 🍀Project Info
 > Project Name: Share
+
 > Project function: share front-end knowledge & tools & personal life
-> Deploy website：promonkeyli.top
+
+> Deploy website：http://promonkeyli.top
 
 ### 🍀Project working
 > npm run start: start-up project(default port: 3000)
+
 > npm run build: build project
 
 ### 🍀Technology stack

@@ -26,4 +26,7 @@
 |            build-images             | pull_request(master) |                    set images separately                     |
 |  deploy docker images include code  | pull_request(master) |              set images includes source code                 |
 |             push-code               |     push(develop)    |  modify docker external data volume (automation fast deploy) |
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38c48b806fa63ed299f234c275ff533c1ade1fbe
